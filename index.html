@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G&C Welfare And Accountancy Services Ltd</title>
+  <meta
+    name="description"
+    content="Trusted welfare advice, accountancy support, forms assistance and consultations in London for individuals, families and businesses."
+  />
+
+  <style>
+    :root {
+      --bg: #040816;
+      --bg-2: #08101d;
+      --surface: rgba(10, 18, 34, 0.58);
+      --surface-strong: rgba(12, 22, 40, 0.82);
+      --card: rgba(14, 24, 44, 0.68);
+      --card-strong: rgba(18, 30, 52, 0.9);
+      --text: #eef4ff;
+      --muted: #9fb0ca;
+      --line: rgba(255, 255, 255, 0.09);
+      --line-strong: rgba(255, 255, 255, 0.16);
+
+      --primary: #69b7ff;
+      --primary-2: #7c5cff;
+      --accent: #00d5c7;
+      --accent-2: #77f3ff;
+      --gold: #ffd88a;
+
+      --shadow-xl: 0 35px 100px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 16px 34px rgba(0, 0, 0, 0.25);
+
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+
+      --container: 1240px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(105, 183, 255, 0.16), transparent 22%),
+        radial-gradient(circle at 88% 14%, rgba(124, 92, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 78% 82%, rgba(0, 213, 199, 0.10), transparent 18%),
+        linear-gradient(180deg, #030711 0%, #050b16 35%, #07101d 100%);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.026) 1px, transparent 1px);
+      background-size: 38px 38px;
+      mask-image: radial-gradient(circle at center, black 50%, transparent 100%);
+      opacity: 0.38;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 540px;
+      height: 540px;
+      left: -120px;
+      top: 15%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(105,183,255,.18), transparent 68%);
+      filter: blur(40px);
+      pointer-events: none;
+      animation: floatOrb 16s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .orb-2 {
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: 18%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,92,255,.18), transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+      animation: floatOrb 18s ease-in-out infinite reverse;
+      z-index: 0;
+    }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-22px) translateX(18px) scale(1.05); }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .topbar {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(4, 8, 22, 0.6);
+      backdrop-filter: blur(18px);
+      color: var(--muted);
+      font-size: .92rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .topbar-inner {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 8px 0;
+    }
+
+    .topbar strong,
+    .topbar a {
+      color: #f7fbff;
+      font-weight: 600;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(4, 8, 22, 0.54);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 210px;
+      max-width: 100%;
+      filter: drop-shadow(0 14px 34px rgba(105,183,255,.14));
+      transition: transform .45s var(--ease), filter .45s var(--ease);
+    }
+
+    .brand:hover .brand-logo {
+      transform: translateY(-2px) scale(1.01);
+      filter: drop-shadow(0 18px 44px rgba(105,183,255,.22));
+    }
+
+    .flag-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 10px;
+      flex-shrink: 0;
+    }
+
+    .flag {
+      width: 34px;
+      height: 24px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.22);
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+    }
+
+    .flag:hover {
+      transform: translateY(-2px) scale(1.06);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.3);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 11px 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .96rem;
+      font-weight: 600;
+      position: relative;
+      transition: color .25s ease;
+    }
+
+    .nav-links a:not(.nav-cta)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--accent-2));
+      transition: width .28s var(--ease);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: #fff;
+    }
+
+    .nav-links a:not(.nav-cta):hover::after,
+    .nav-links a:not(.nav-cta):focus-visible::after {
+      width: 100%;
+    }
+
+    .nav-cta,
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #fff !important;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 18px 36px rgba(105,183,255,.24);
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: 14px;
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 42px rgba(105,183,255,.28);
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+    }
+
+    section {
+      padding: 26px 0 90px;
+    }
+
+    .chart-bg-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chart-bg-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .chart-bg-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'>\
+<path d='M0 620 C140 600 180 560 290 540 C430 515 470 470 610 455 C760 438 830 350 960 330 C1080 312 1170 260 1280 215 C1370 178 1460 150 1600 120' fill='none' stroke='rgba(105,183,255,0.28)' stroke-width='4' stroke-linecap='round'/>\
+<path d='M0 700 C120 690 210 650 320 610 C450 560 500 590 650 520 C780 460 890 470 1030 390 C1160 315 1290 290 1600 210' fill='none' stroke='rgba(0,213,199,0.18)' stroke-width='3' stroke-linecap='round'/>\
+<path d='M0 760 C160 735 230 720 360 680 C500 635 610 645 760 590 C910 535 1040 470 1170 420 C1310 365 1440 320 1600 270' fill='none' stroke='rgba(124,92,255,0.16)' stroke-width='3' stroke-linecap='round'/>\
+</svg>");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .chart-bg-section > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .chart-glow {
+      position: relative;
+    }
+
+    .chart-glow::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: 10%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(105,183,255,0.16), transparent 70%);
+      filter: blur(34px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero {
+      padding-top: 34px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(145deg, rgba(10, 18, 34, 0.9), rgba(7, 14, 28, 0.78)),
+        radial-gradient(circle at top right, rgba(105,183,255,0.16), transparent 28%);
+      box-shadow: var(--shadow-xl);
+      isolation: isolate;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.05) 45%, transparent 75%);
+      transform: translateX(-120%);
+      animation: heroShine 7s linear infinite;
+      pointer-events: none;
+    }
+
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(140deg, rgba(255,255,255,.18), rgba(255,255,255,.02), rgba(105,183,255,.18));
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      opacity: .8;
+    }
+
+    @keyframes heroShine {
+      0% { transform: translateX(-120%); }
+      100% { transform: translateX(140%); }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 28px;
+      padding: 62px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow,
+    .badge,
+    .mini-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.11);
+      background: rgba(255,255,255,0.05);
+      color: #e6efff;
+      backdrop-filter: blur(16px);
+    }
+
+    .eyebrow {
+      padding: 9px 16px;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.18);
+    }
+
+    h1, h2, h3, h4 {
+      letter-spacing: -.03em;
+    }
+
+    h1 {
+      max-width: 11ch;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      line-height: .95;
+      margin-bottom: 18px;
+    }
+
+    .hero-copy p {
+      margin: 0 0 28px;
+      max-width: 660px;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px;
+      border-radius: 15px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      transition:
+        transform .28s var(--ease),
+        box-shadow .28s var(--ease),
+        border-color .28s var(--ease),
+        background .28s var(--ease),
+        filter .28s var(--ease);
+      position: relative;
+      overflow: hidden;
+      will-change: transform;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.18) 45%, transparent 75%);
+      transform: translateX(-130%);
+      transition: transform .8s var(--ease);
+    }
+
+    .btn:hover::before {
+      transform: translateX(130%);
+    }
+
+    .btn:hover,
+    .card:hover,
+    .service-card:hover,
+    .info-card:hover,
+    .metric:hover,
+    .company-card:hover,
+    .contact-card:hover,
+    .showcase-photo:hover,
+    .showcase-stat-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 24px 50px rgba(105,183,255,.28);
+      filter: saturate(1.08);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.12);
+      color: #fff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #18c37d, #0f9d67);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 16px 34px rgba(24,195,125,.24);
+    }
+
+    .btn-whatsapp:hover {
+      box-shadow: 0 22px 42px rgba(24,195,125,.3);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.045);
+      transition:
+        transform .28s var(--ease),
+        border-color .28s var(--ease),
+        background .28s var(--ease),
+        box-shadow .28s var(--ease);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    .metric:hover {
+      border-color: rgba(105,183,255,.26);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.12rem;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .glass,
+    .info-card,
+    .service-card,
+    .card,
+    .company-card,
+    .contact-card,
+    .location-box,
+    .panel,
+    .showcase-photo,
+    .showcase-stat-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(180deg, rgba(18, 30, 52, 0.76), rgba(10, 18, 34, 0.82));
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      transition:
+        transform .3s var(--ease),
+        border-color .3s var(--ease),
+        box-shadow .3s var(--ease),
+        background .3s var(--ease);
+    }
+
+    .glass::before,
+    .info-card::before,
+    .service-card::before,
+    .card::before,
+    .company-card::before,
+    .contact-card::before,
+    .panel::before,
+    .showcase-photo::before,
+    .showcase-stat-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.02), rgba(105,183,255,.12));
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      opacity: .95;
+    }
+
+    .hero-logo-card,
+    .info-card {
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .hero-logo-card {
+      min-height: 230px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, rgba(105,183,255,.08), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)),
+        linear-gradient(180deg, rgba(18, 30, 52, 0.9), rgba(10, 18, 34, 0.9));
+      overflow: hidden;
+    }
+
+    .hero-logo-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,92,255,.18), transparent 68%);
+      filter: blur(24px);
+      animation: pulseGlow 4.5s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%,100% { transform: scale(1); opacity: .8; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
+
+    .hero-logo-card img {
+      max-height: 190px;
+      width: auto;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      animation: floatSoft 6s ease-in-out infinite;
+    }
+
+    @keyframes floatSoft {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .info-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 840px;
+      margin: 0 auto 30px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin-bottom: 12px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .badge {
+      padding: 8px 14px;
+      margin-bottom: 14px;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .panel {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .panel-inner {
+      padding: 36px;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .card,
+    .service-card,
+    .company-card,
+    .contact-card {
+      border-radius: 24px;
+      padding: 24px;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .card:hover,
+    .service-card:hover,
+    .company-card:hover,
+    .info-card:hover,
+    .metric:hover,
+    .contact-card:hover,
+    .showcase-photo:hover,
+    .showcase-stat-card:hover {
+      border-color: rgba(105,183,255,.28);
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      font-size: .95rem;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(105,183,255,1), rgba(124,92,255,1));
+      box-shadow: 0 16px 30px rgba(105,183,255,.24);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .icon::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.22) 45%, transparent 75%);
+      transform: translateX(-130%);
+      animation: iconShine 4s linear infinite;
+    }
+
+    @keyframes iconShine {
+      0% { transform: translateX(-130%); }
+      100% { transform: translateX(130%); }
+    }
+
+    .card h3,
+    .service-card h3,
+    .company-card h3,
+    .contact-card h3 {
+      font-size: 1.16rem;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .service-card p,
+    .company-card p,
+    .contact-card p,
+    .location-note,
+    .detail-row span,
+    .detail-row a,
+    .note {
+      color: var(--muted);
+    }
+
+    .service-card {
+      isolation: isolate;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(105,183,255,.16), transparent 24%);
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .service-card:hover::after {
+      opacity: 1;
+    }
+
+    .service-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card .mini-badge {
+      padding: 6px 12px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .trust-item {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #eaf3ff;
+      font-weight: 600;
+      transition: transform .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
+    }
+
+    .trust-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(105,183,255,.22);
+      background: rgba(255,255,255,.06);
+    }
+
+    .details-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .detail-row:last-child {
+      border-bottom: 0;
+    }
+
+    .detail-row strong {
+      color: #f4f8ff;
+    }
+
+    .detail-row a {
+      transition: color .2s ease;
+    }
+
+    .detail-row a:hover {
+      color: #fff;
+    }
+
+    .business-showcase {
+      padding-top: 10px;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+    }
+
+    .showcase-visuals {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .showcase-photo,
+    .showcase-stat-card {
+      border-radius: 24px;
+      overflow: hidden;
+      min-height: 300px;
+    }
+
+    .showcase-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.02);
+      transition: transform .5s var(--ease);
+    }
+
+    .showcase-photo:hover img {
+      transform: scale(1.07);
+    }
+
+    .showcase-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(5,10,22,0.08), rgba(5,10,22,0.54)),
+        linear-gradient(135deg, rgba(105,183,255,0.10), transparent 45%);
+      pointer-events: none;
+    }
+
+    .showcase-label {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(8, 15, 29, 0.72);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #eef4ff;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .showcase-stat-card {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        radial-gradient(circle at top right, rgba(105,183,255,0.14), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(0,213,199,0.12), transparent 28%),
+        linear-gradient(180deg, rgba(18, 30, 52, 0.92), rgba(10, 18, 34, 0.94));
+    }
+
+    .showcase-kpi {
+      font-size: clamp(3rem, 7vw, 5rem);
+      line-height: .95;
+      font-weight: 900;
+      letter-spacing: -.05em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff, #9fd3ff 55%, #7c5cff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .showcase-stat-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .showcase-stat-card p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .showcase-mini-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .showcase-mini {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .showcase-mini strong {
+      display: block;
+      font-size: 1.05rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .showcase-mini span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .location-box {
+      overflow: hidden;
+      border-radius: 28px;
+      box-shadow: var(--shadow-xl);
+    }
+
+    iframe {
+      width: 100%;
+      height: 430px;
+      display: block;
+      border: 0;
+      filter: grayscale(.12) contrast(1.06) saturate(.92);
+    }
+
+    .location-note {
+      padding: 18px 22px 22px;
+      background: rgba(8, 15, 29, 0.92);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 18px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #f0f6ff;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font: inherit;
+      transition:
+        border-color .24s ease,
+        box-shadow .24s ease,
+        background .24s ease,
+        transform .24s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #7f95b5;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 0;
+      border-color: rgba(105,183,255,0.55);
+      box-shadow: 0 0 0 4px rgba(105,183,255,0.12);
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-1px);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 18px 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 120;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #19c37d, #0f9d67);
+      color: #fff;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 20px 40px rgba(25,195,125,.28);
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 24px 48px rgba(25,195,125,.34);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px) scale(.985);
+      transition:
+        opacity .85s var(--ease),
+        transform .85s var(--ease);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .reveal-delay-1 { transition-delay: .08s; }
+    .reveal-delay-2 { transition-delay: .16s; }
+    .reveal-delay-3 { transition-delay: .24s; }
+    .reveal-delay-4 { transition-delay: .32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .contact-grid,
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4,
+      .grid-3,
+      .trust-strip,
+      .hero-metrics,
+      .showcase-mini-stats,
+      .showcase-visuals {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 780px) {
+      .topbar-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        padding: 12px 0;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 10px 0 4px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .brand-logo {
+        width: 170px;
+      }
+
+      .flag-group {
+        gap: 8px;
+        margin-left: 6px;
+      }
+
+      .flag {
+        width: 30px;
+        height: 21px;
+      }
+
+      .hero-grid,
+      .panel-inner {
+        padding: 24px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .trust-strip,
+      .hero-metrics,
+      .showcase-mini-stats,
+      .showcase-visuals {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase-photo,
+      .showcase-stat-card {
+        min-height: 240px;
+      }
+
+      .detail-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      iframe {
+        height: 320px;
+      }
+
+      .whatsapp-float span {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb-2"></div>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div><strong>Trusted welfare and accountancy support</strong> in London</div>
+      <div>
+        <a href="tel:+447404907088">+44 7404 907088</a> ·
+        <a href="mailto:office@gcwelfareadvice.co.uk">office@gcwelfareadvice.co.uk</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="#home" aria-label="G&C Welfare And Accountancy Services Ltd home">
+          <img src="logo.png" alt="G&C Welfare and Accountancy Services logo" class="brand-logo" />
+
+          <div class="flag-group" aria-label="Supported languages">
+            <img src="https://flagcdn.com/w40/gb.png" alt="UK flag" class="flag" />
+            <img src="https://flagcdn.com/w40/ro.png" alt="Romania flag" class="flag" />
+          </div>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          Menu
+        </button>
+
+        <div class="nav-links" id="site-menu">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#growth">Growth</a>
+          <a href="#company">Company</a>
+          <a href="#location">Location</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact" class="nav-cta">Book Consultation</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-shell reveal">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow">Professional support · Premium digital experience</div>
+              <h1>Reliable welfare advice and accountancy services</h1>
+              <p>
+                G&C Welfare And Accountancy Services Ltd delivers practical support for welfare advice,
+                accountancy services, forms, documentation and consultations for individuals,
+                families and businesses.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Book a consultation</a>
+                <a href="#services" class="btn btn-secondary">Explore services</a>
+                <a href="https://wa.me/447404907088" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">WhatsApp us</a>
+              </div>
+
+              <div class="hero-metrics">
+                <div class="metric reveal reveal-delay-1">
+                  <strong>Welfare Support</strong>
+                  <span>Practical help with clear guidance for every client.</span>
+                </div>
+                <div class="metric reveal reveal-delay-2">
+                  <strong>Accountancy</strong>
+                  <span>Professional support for individuals and businesses.</span>
+                </div>
+                <div class="metric reveal reveal-delay-3">
+                  <strong>London Based</strong>
+                  <span>Located at 2 Katherine Road, E6 1PB.</span>
+                </div>
+              </div>
+            </div>
+
+            <aside class="hero-side">
+              <div class="hero-logo-card glass reveal reveal-delay-1">
+                <img src="logo.png" alt="G&C Welfare and Accountancy Services logo" />
+              </div>
+
+              <div class="info-card glass reveal reveal-delay-2">
+                <h3>Fast, direct communication</h3>
+                <p>
+                  Clear support for forms, documents, enquiries and consultations,
+                  with direct contact by phone, email and WhatsApp.
+                </p>
+              </div>
+
+              <div class="info-card glass reveal reveal-delay-3">
+                <h3>Designed for trust and clarity</h3>
+                <p>
+                  A sharper visual identity, stronger hierarchy and a more advanced digital presentation
+                  for a professional business image.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="chart-bg-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge">About the company</div>
+          <h2>Professional support with a high-end digital presence</h2>
+          <p>
+            We provide approachable and practical support, helping clients with welfare matters,
+            accountancy needs and important documentation through a structured and professional service experience.
+          </p>
+        </div>
+
+        <div class="panel reveal">
+          <div class="panel-inner">
+            <div class="grid-3">
+              <article class="card reveal reveal-delay-1">
+                <div class="icon">01</div>
+                <h3>Trusted Guidance</h3>
+                <p>Clear advice, direct communication and practical support for everyday client needs.</p>
+              </article>
+
+              <article class="card reveal reveal-delay-2">
+                <div class="icon">02</div>
+                <h3>Professional Service</h3>
+                <p>A more polished presentation that feels credible, current and reassuring for visitors.</p>
+              </article>
+
+              <article class="card reveal reveal-delay-3">
+                <div class="icon">03</div>
+                <h3>Community Focused</h3>
+                <p>Support for individuals, families and businesses looking for accessible local assistance.</p>
+              </article>
+            </div>
+
+            <div class="trust-strip">
+              <div class="trust-item reveal reveal-delay-1">Professional and approachable support</div>
+              <div class="trust-item reveal reveal-delay-2">Multiple direct contact channels</div>
+              <div class="trust-item reveal reveal-delay-3">Established London business presence</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="chart-bg-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge">Services</div>
+          <h2>Core services with a more luxury, technology-driven feel</h2>
+          <p>
+            Visitors can scan the offer much faster, with cleaner sections,
+            more elegant spacing and premium visual hierarchy.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <article class="service-card reveal reveal-delay-1">
+            <div class="mini-badge">Service 01</div>
+            <h3>Welfare Advice</h3>
+            <p>Practical guidance and support for welfare-related matters with a client-focused approach.</p>
+          </article>
+
+          <article class="service-card reveal reveal-delay-2">
+            <div class="mini-badge">Service 02</div>
+            <h3>Accountancy Services</h3>
+            <p>Professional accountancy support for individuals, self-employed clients and businesses.</p>
+          </article>
+
+          <article class="service-card reveal reveal-delay-3">
+            <div class="mini-badge">Service 03</div>
+            <h3>Forms &amp; Documentation</h3>
+            <p>Help with preparing, organising and understanding official documents and forms.</p>
+          </article>
+
+          <article class="service-card reveal reveal-delay-4">
+            <div class="mini-badge">Service 04</div>
+            <h3>Consultations</h3>
+            <p>Tailored consultations to help clients understand the next steps clearly and confidently.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="growth" class="business-showcase chart-bg-section chart-glow">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge">Business growth</div>
+          <h2>Trusted support backed by growth, structure and client confidence</h2>
+          <p>
+            A stronger business presentation with office imagery, growth visuals and a clearer
+            perception of scale, trust and professional consistency.
+          </p>
+        </div>
+
+        <div class="showcase-grid">
+          <div class="showcase-visuals">
+            <div class="showcase-photo reveal reveal-delay-1">
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+                alt="Modern office workspace"
+              />
+              <div class="showcase-label">Office environment</div>
+            </div>
+
+            <div class="showcase-photo reveal reveal-delay-2">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+                alt="Business analytics charts on screen"
+              />
+              <div class="showcase-label">Business performance</div>
+            </div>
+          </div>
+
+          <div class="showcase-stat-card reveal reveal-delay-3">
+            <div class="showcase-kpi">6000+</div>
+            <h3>Clients supported</h3>
+            <p>
+              A stronger trust signal that communicates business scale, client reach and
+              an established service presence.
+            </p>
+
+            <div class="showcase-mini-stats">
+              <div class="showcase-mini">
+                <strong>Professional</strong>
+                <span>Structured client support</span>
+              </div>
+              <div class="showcase-mini">
+                <strong>Reliable</strong>
+                <span>Clear communication channels</span>
+              </div>
+              <div class="showcase-mini">
+                <strong>Growth</strong>
+                <span>Modern business presentation</span>
+              </div>
+              <div class="showcase-mini">
+                <strong>Trusted</strong>
+                <span>More confidence for visitors</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="company" class="chart-bg-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge">Company info</div>
+          <h2>Clear business details with stronger premium structure</h2>
+          <p>
+            Key company information is displayed in a more luxurious, modern and readable format.
+          </p>
+        </div>
+
+        <div class="panel reveal">
+          <div class="panel-inner grid-2">
+            <div class="company-card reveal reveal-delay-1">
+              <h3>Registered Details</h3>
+              <div class="details-list">
+                <div class="detail-row">
+                  <strong>Company name</strong>
+                  <span>G&amp;C Welfare And Accountancy Services Ltd</span>
+                </div>
+                <div class="detail-row">
+                  <strong>Address</strong>
+                  <span>2 Katherine Road, London E6 1PB, England</span>
+                </div>
+                <div class="detail-row">
+                  <strong>Phone</strong>
+                  <a href="tel:+447404907088">+44 7404 907088</a>
+                </div>
+                <div class="detail-row">
+                  <strong>Email</strong>
+                  <a href="mailto:office@gcwelfareadvice.co.uk">office@gcwelfareadvice.co.uk</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="company-card reveal reveal-delay-2">
+              <h3>Why this redesign feels premium</h3>
+              <p>
+                This version introduces cinematic gradients, animated glow effects, reveal transitions,
+                richer surfaces, cleaner call-to-action hierarchy and a more exclusive visual language.
+                The result feels more advanced, more elegant and more credible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge">Location</div>
+          <h2>Visible location details that improve confidence and accessibility</h2>
+          <p>
+            A clear office location helps reassure visitors that the business is established, reachable and local.
+          </p>
+        </div>
+
+        <div class="location-box reveal">
+          <iframe
+            src="https://www.google.com/maps?q=2%20Katherine%20Road%2C%20London%20E6%201PB&z=15&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Map - 2 Katherine Road, London E6 1PB, England"
+          ></iframe>
+          <div class="location-note">
+            <strong>G&amp;C Welfare And Accountancy Services Ltd</strong><br />
+            2 Katherine Road, London E6 1PB, England
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="chart-bg-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge">Contact</div>
+          <h2>Faster contact flow with a more refined interaction design</h2>
+          <p>
+            Make it easy for visitors to get in touch quickly through phone, email or WhatsApp.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal reveal-delay-1">
+            <h3>Contact Details</h3>
+            <div class="details-list">
+              <div class="detail-row">
+                <strong>Phone</strong>
+                <a href="tel:+447404907088">+44 7404 907088</a>
+              </div>
+              <div class="detail-row">
+                <strong>Email</strong>
+                <a href="mailto:office@gcwelfareadvice.co.uk">office@gcwelfareadvice.co.uk</a>
+              </div>
+              <div class="detail-row">
+                <strong>Address</strong>
+                <span>2 Katherine Road, London E6 1PB, England</span>
+              </div>
+            </div>
+
+            <div class="hero-actions" style="margin-top: 18px; margin-bottom: 0;">
+              <a href="https://wa.me/447404907088" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">WhatsApp</a>
+              <a href="mailto:office@gcwelfareadvice.co.uk" class="btn btn-primary">Email Us</a>
+            </div>
+          </div>
+
+          <div class="contact-card reveal reveal-delay-2">
+            <h3>Quick Enquiry</h3>
+            <form id="enquiryForm">
+              <div>
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" placeholder="Your full name" required />
+              </div>
+
+              <div>
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" placeholder="your@email.com" required />
+              </div>
+
+              <div>
+                <label for="message">How can we help?</label>
+                <textarea id="message" name="message" placeholder="Write your enquiry here" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Send enquiry</button>
+              <p class="note">This form opens your email app with the details pre-filled.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-box">
+        <div>© <span id="year"></span> G&amp;C Welfare And Accountancy Services Ltd. All rights reserved.</div>
+        <div>Welfare advice · Accountancy services · Documentation support</div>
+      </div>
+    </div>
+  </footer>
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/447404907088"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+  >
+    <span>WhatsApp</span>
+  </a>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('.nav-links');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('enquiryForm');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const subject = encodeURIComponent('Website enquiry from ' + name);
+      const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + message
+      );
+
+      window.location.href =
+        'mailto:office@gcwelfareadvice.co.uk?subject=' + subject + '&body=' + body;
+    });
+
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    serviceCards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--mx', x + '%');
+        card.style.setProperty('--my', y + '%');
+      });
+    });
+  </script>
+</body>
+</html>
